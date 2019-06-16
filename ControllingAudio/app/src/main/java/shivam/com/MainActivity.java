@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
 
     // It is used to use the Audio in our app.
@@ -21,13 +24,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // when the app opens, we create a media player.
-        mediaPlayer=MediaPlayer.create(this,R.raw.sample);
+        mediaPlayer=MediaPlayer.create(this,R.raw.audio);
 
 
         // when the app opens, we need to create the audioManager so as to control the audio!
         audioManager=(AudioManager)getSystemService(AUDIO_SERVICE);
 
-        SeekBar volumeControl=findViewById(R.id.seekBar);
+        SeekBar volumeControl=findViewById(R.id.volumeSeekBar);
 
         // Since the max volume changes from device to device.
         // So we have to first find the max volume of the particular device using AudioManager.
@@ -64,6 +67,39 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        // Now setting up the audio seek bar or Scrub seek bar.
+
+        final SeekBar scrubSeekBar=findViewById(R.id.scrubSeekBar);
+
+        scrubSeekBar.setMax(mediaPlayer.getDuration());
+
+        scrubSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                mediaPlayer.seekTo(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        // Timer is used to regularly update the scrubSeekBar as the music plays.
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                scrubSeekBar.setProgress(mediaPlayer.getCurrentPosition());
+            }
+        },0,200);   // It updates the scrubSeekBar every Second.
 
     }
 

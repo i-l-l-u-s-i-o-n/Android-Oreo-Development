@@ -12,12 +12,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="173dp"
         android:layout_marginLeft="173dp"
-        android:layout_marginTop="218dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="150dp"
         android:layout_marginRight="150dp"
         android:onClick="play"
         android:text="Play"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,12 +38,25 @@
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/volumeSeekBar"
         android:layout_width="377dp"
         android:layout_height="46dp"
         android:layout_marginStart="21dp"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="132dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <SeekBar
+        android:id="@+id/scrubSeekBar"
+        android:layout_width="377dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="13dp"
         android:layout_marginRight="13dp"
         app:layout_constraintEnd_toEndOf="parent"
