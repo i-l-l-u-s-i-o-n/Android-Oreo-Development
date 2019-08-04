@@ -22,11 +22,18 @@ public class MainActivity extends AppCompatActivity {
 
         final List<Integer> table = new ArrayList<>();
 
-        seekBar.setMax(100);
+        final int min =1;
+        int max=25;
+        seekBar.setMax(max);
+        seekBar.setProgress(min);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 table.clear();
+
+                if (progress<min){
+                    seekBar.setProgress(min);
+                }
                 for (int i=1;i<=20;i++){
                     table.add(progress*i);
                 }
