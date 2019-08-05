@@ -21,128 +21,157 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/timer"
-        android:layout_width="113dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/roundedbutton"
-        android:gravity="center|center_horizontal"
-        android:text="29"
-        android:textSize="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="113dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/roundedbutton"
-        android:gravity="center"
-        android:text="1/2"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/equation"
-        android:layout_width="218dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="58dp"
-        android:gravity="center"
-        android:text="9 * 6 = ?"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timer" />
-
-    <android.support.v7.widget.GridLayout
-        android:layout_width="385dp"
-        android:layout_height="301dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/gameSetupLayout"
+        android:layout_width="402dp"
+        android:layout_height="733dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultStatus">
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/option1"
-            android:layout_width="187dp"
-            android:layout_height="119dp"
-            android:layout_margin="4dp"
-            android:background="@drawable/button_option"
-            android:onClick="optionPresssed"
-            android:tag="0"
-            android:text="4"
-            android:textSize="80dp"
-            app:layout_column="0"
-            app:layout_row="0" />
+            android:id="@+id/playAgain"
+            android:layout_width="252dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/playagainbutton"
+            android:gravity="center"
+            android:onClick="setPlayAgain"
+            android:text="Play Again!"
+            android:textSize="30dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/equation" />
 
-        <Button
-            android:id="@+id/option2"
-            android:layout_width="187dp"
-            android:layout_height="119dp"
-            android:layout_margin="4dp"
-            android:background="@drawable/button_option"
-            android:onClick="optionPresssed"
-            android:tag="1"
-            android:text="4"
-            android:textSize="80dp"
-            app:layout_column="1"
+        <TextView
+            android:id="@+id/resultStatus"
+            android:layout_width="341dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="22dp"
+            android:gravity="center"
+            android:text="Correct !"
+            android:textSize="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/equation" />
+
+        <android.support.v7.widget.GridLayout
+            android:layout_width="385dp"
+            android:layout_height="301dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playAgain">
+
+            <Button
+                android:id="@+id/option1"
+                android:layout_width="187dp"
+                android:layout_height="119dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/button_option"
+                android:onClick="optionPressed"
+                android:tag="0"
+                android:text="4"
+                android:textSize="80dp"
+                app:layout_column="0"
+                app:layout_row="0" />
+
+            <Button
+                android:id="@+id/option2"
+                android:layout_width="187dp"
+                android:layout_height="119dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/button_option"
+                android:onClick="optionPressed"
+                android:tag="1"
+                android:text="4"
+                android:textSize="80dp"
+                app:layout_column="1"
 
 
-            app:layout_row="0" />
-        <!--app:layout_columnWeight="1"-->
-        <!--app:layout_rowWeight="1"-->
-        <!--app:layout_gravity="fill"-->
-        <Button
-            android:id="@+id/option3"
-            android:layout_width="187dp"
-            android:layout_height="119dp"
-            android:layout_margin="4dp"
-            android:background="@drawable/button_option"
-            android:onClick="optionPresssed"
-            android:tag="2"
-            android:text="4"
-            android:textSize="80dp"
-            app:layout_column="0"
-            app:layout_row="1">
+                app:layout_row="0" />
+            <!--app:layout_columnWeight="1"-->
+            <!--app:layout_rowWeight="1"-->
+            <!--app:layout_gravity="fill"-->
+            <Button
+                android:id="@+id/option3"
+                android:layout_width="187dp"
+                android:layout_height="119dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/button_option"
+                android:onClick="optionPressed"
+                android:tag="2"
+                android:text="4"
+                android:textSize="80dp"
+                app:layout_column="0"
+                app:layout_row="1">
 
-        </Button>
+            </Button>
 
-        <Button
-            android:id="@+id/option4"
-            android:layout_width="187dp"
-            android:layout_height="119dp"
-            android:layout_margin="4dp"
-            android:background="@drawable/button_option"
-            android:onClick="optionPresssed"
-            android:tag="3"
-            android:text="4"
-            android:textSize="80dp"
-            app:layout_column="1"
-            app:layout_row="1" />
-    </android.support.v7.widget.GridLayout>
+            <Button
+                android:id="@+id/option4"
+                android:layout_width="187dp"
+                android:layout_height="119dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/button_option"
+                android:onClick="optionPressed"
+                android:tag="3"
+                android:text="4"
+                android:textSize="80dp"
+                app:layout_column="1"
+                app:layout_row="1" />
+        </android.support.v7.widget.GridLayout>
 
-    <TextView
-        android:id="@+id/resultStatus"
-        android:layout_width="226dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="37dp"
-        android:gravity="center"
-        android:text="Correct !"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/equation" />
+        <TextView
+            android:id="@+id/equation"
+            android:layout_width="315dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="48dp"
+            android:gravity="center"
+            android:text="9 * 6 = ?"
+            android:textSize="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scoreStatus" />
+
+        <TextView
+            android:id="@+id/scoreStatus"
+            android:layout_width="133dp"
+            android:layout_height="98dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:background="@drawable/roundedbutton"
+            android:gravity="center"
+            android:text="1/2"
+            android:textSize="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="140dp"
+            android:layout_height="97dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/roundedbutton"
+            android:gravity="center|center_horizontal"
+            android:text="30s"
+            android:textSize="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>
